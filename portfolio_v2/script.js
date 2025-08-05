@@ -144,3 +144,74 @@ tailwind.config = {
   function closePopup() {
     popup.classList.add('hidden');
   }
+
+
+  // portfolio modal
+
+  const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalImage = document.getElementById('carousel-image');
+
+let currentImages = [];
+let currentIndex = 0;
+
+const imageData = {
+  project1: {
+    title: 'Project Resolve',
+    images: [
+      'Project-Resolve/screencapture-localhost-5173-2025-08-01-01_41_50.png',
+      'Project-Resolve/screencapture-localhost-5173-lce-dashboard-2025-08-01-01_42_45.png',
+      'Project-Resolve/screencapture-localhost-5174-2025-08-01-01_43_07.png',
+      'Project-Resolve/screencapture-localhost-5174-lgu-chat-2025-08-01-01_44_20.png',
+      'Project-Resolve/screencapture-localhost-5174-lgu-dashboard-2025-08-01-01_43_44.png',
+      'Project-Resolve/screencapture-localhost-5174-lgu-settings-2025-08-01-01_45_10.png',
+    ]
+  },
+  project2: {
+    title: 'Makaturismo',
+    images: [
+      'Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.png',
+    ]
+  },
+  project3: {
+    title: 'SaaS Integration Platform',
+    images: [
+      'https://via.placeholder.com/600x400?text=SaaS+Image+1',
+      'https://via.placeholder.com/600x400?text=SaaS+Image+2',
+    ]
+  }
+};
+
+function openModal(projectId) {
+  const data = imageData[projectId];
+  if (!data) return;
+
+  modalTitle.textContent = data.title;
+  currentImages = data.images;
+  currentIndex = 0;
+
+  updateCarouselImage();
+  modal.classList.remove('hidden');
+}
+
+function updateCarouselImage() {
+  if (currentImages.length === 0) return;
+  modalImage.src = currentImages[currentIndex];
+}
+
+function nextImage() {
+  if (currentImages.length === 0) return;
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  updateCarouselImage();
+}
+
+function prevImage() {
+  if (currentImages.length === 0) return;
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  updateCarouselImage();
+}
+
+function closeModal() {
+  modal.classList.add('hidden');
+  modalImage.src = ''; // clear on close
+}

@@ -209,61 +209,85 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20">
+    <section id="portfolio" class="py-20  text-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-12 text-center text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Portfolio</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" 
-                         alt="Project 1" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Enterprise API Hub</h3>
-                        <p class="text-gray-300 mb-4">Centralized API management platform with real-time monitoring and analytics.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Java</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
-                        </div>
-                    </div>
+          <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Portfolio</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+            <!-- Project 1 -->
+            <div onclick="openModal('project1')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1115&q=80"
+                   alt="Project 1" class="w-full h-48 object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Project Resolve</h3>
+                <p class="text-gray-300 mb-4">Centralized API management platform with real-time monitoring and analytics.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Java</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">PostgreSQL</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                         alt="Project 2" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">Workflow Automation Suite</h3>
-                        <p class="text-gray-300 mb-4">Custom automation platform for business process optimization.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Kotlin</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">HubSpot API</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
-                         alt="Project 3" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-white">SaaS Integration Platform</h3>
-                        <p class="text-gray-300 mb-4">Unified platform for managing multiple SaaS integrations and webhooks.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
-                            <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">SaaS</span>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+      
+            <!-- Project 2 -->
+            <div onclick="openModal('project2')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1170&q=80"
+                   alt="Project 2" class="w-full h-48 object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Makaturismo</h3>
+                <p class="text-gray-300 mb-4">Custom automation platform for business process optimization.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Kotlin</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">HubSpot API</span>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Project 3 -->
+            <div onclick="openModal('project3')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
+              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1074&q=80"
+                   alt="Project 3" class="w-full h-48 object-cover">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">SaaS Integration Platform</h3>
+                <p class="text-gray-300 mb-4">Unified platform for managing multiple SaaS integrations and webhooks.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
+                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">SaaS</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+    
 
+        <!-- Modal -->
+        <div id="modal" class="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center hidden">
+            <div class="bg-deep-blue text-white p-6 rounded-lg w-full max-w-3xl mx-4 max-h-[90vh] overflow-y-auto relative">
+              <button class="absolute top-2 right-3 text-3xl text-gray-600 hover:text-red-600" onclick="closeModal()">×</button>
+              
+              <h3 id="modal-title" class="text-2xl font-bold mb-4 text-center">Project Title</h3>
+          
+              <div class="relative">
+                <img id="carousel-image" src="" alt="Carousel Image" class="w-full h-auto rounded-lg object-contain max-h-[60vh] mx-auto" />
+          
+                <!-- Previous Button -->
+                <button onclick="prevImage()" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-r hover:bg-opacity-75">
+                  ‹
+                </button>
+          
+                <!-- Next Button -->
+                <button onclick="nextImage()" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-l hover:bg-opacity-75">
+                  ›
+                </button>
+              </div>
+            </div>
+          </div>
+          
+
+
+    </section>
    
 
     <!-- Contact Section -->
