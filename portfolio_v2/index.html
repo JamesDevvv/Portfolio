@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 
@@ -212,54 +213,195 @@
     <section id="portfolio" class="py-20  text-white">
         <div class="container mx-auto px-6">
           <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">Portfolio</h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
       
-            <!-- Project 1 -->
-            <div onclick="openModal('project1')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1115&q=80"
-                   alt="Project 1" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Project Resolve</h3>
-                <p class="text-gray-300 mb-4">Centralized API management platform with real-time monitoring and analytics.</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Java</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">PostgreSQL</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
-                </div>
-              </div>
-            </div>
+           
+    <!-- DSWD Project -->
+    <div x-data="{ showMore: false }"
+    class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+
+ <div onclick="openModal('project1')" class="cursor-pointer">
+   <img src="Project-Resolve/screencapture-localhost-5174-lgu-dashboard-2025-08-01-01_43_44.png"
+        alt="Project 1" class="w-full h-48 object-cover">
+   <div class="p-6 pt-4">
+     <h3 class="text-xl font-bold mb-2">Project Resolve</h3>
+   </div>
+ </div>
+
+ <div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+   <p class="text-gray-300 mb-4">
+     <strong>Project Resolve (DSWD – Internal Disaster Monitoring System)</strong><br>
+     A multi-module web application developed for a government agency to streamline disaster monitoring and emergency
+     response within Metro Manila.
+   </p>
+
+   <!-- Expandable Section (Independent Layer) -->
+   <div x-show="showMore"
+        x-transition
+        class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+     <button @click="showMore = false"
+             class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+       Show Less
+     </button>
+     <p class="text-gray-300 text-sm">
+       The platform consists of four interconnected systems—Admin, Lead, Responder, and Public—each designed for specific user roles in the disaster response workflow, including incident tracking, document approval, field reporting, and real-time communication.
+       <br><br>
+       <strong>My Role:</strong> Developed and maintained backend services using Laravel. Responsible for API integrations, implementing role-based access control, and managing real-time data synchronization across modules.
+       <br><br>
+       <strong>Key Features:</strong><br>
+       • Role-specific dashboards for each user type<br>
+       • Real-time incident reporting with image upload support<br>
+       • Document approval and fund monitoring system for department leads<br>
+       • Public portal with integrated chat to communicate directly with responders
+     </p>
+   </div>
+
+   <!-- Toggle Button -->
+   <button @click="showMore = true"
+           x-show="!showMore"
+           class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+     Show More
+   </button>
+
+   <!-- Tech Stack -->
+   <div class="flex flex-wrap gap-2 mt-4">
+     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">React.js</span>
+     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
+     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
+   </div>
+ </div>
+</div>
+
       
-            <!-- Project 2 -->
-            <div onclick="openModal('project2')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1170&q=80"
-                   alt="Project 2" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Makaturismo</h3>
-                <p class="text-gray-300 mb-4">Custom automation platform for business process optimization.</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Kotlin</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">HubSpot API</span>
-                </div>
-              </div>
-            </div>
-      
-            <!-- Project 3 -->
-            <div onclick="openModal('project3')" class="cursor-pointer bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300">
-              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1074&q=80"
-                   alt="Project 3" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">SaaS Integration Platform</h3>
-                <p class="text-gray-300 mb-4">Unified platform for managing multiple SaaS integrations and webhooks.</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
-                  <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">SaaS</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Makaturismo Project -->
+      <div x-data="{ showMore: false }"
+      class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+ 
+   <!-- Clickable Image & Title -->
+   <div onclick="openModal('project2')" class="cursor-pointer">
+     <img src="Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.png"
+          alt="Makaturismo Screenshot" class="w-full h-48 object-cover">
+     <div class="p-6 pt-4">
+       <h3 class="text-xl font-bold mb-2">Makaturismo</h3>
+     </div>
+   </div>
+ 
+   <!-- Summary -->
+   <div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+     <p class="text-gray-300 mb-4">
+       <strong>MakaTurismo (Tourism & Marketplace Platform for Makati)</strong><br>
+       MakaTurismo is a tourism and e-commerce web application built to promote local tourism and businesses within
+       Makati City. It showcases historical landmarks, tourist destinations, and recommended restaurants.
+     </p>
+ 
+     <!-- Expandable Section (Overlay Style) -->
+     <div x-show="showMore"
+          x-transition
+          class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+       
+       <button @click="showMore = false"
+               class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+         Show Less
+       </button>
+       
+       <p class="text-gray-300 text-sm">
+         MakaTurismo also allows users to shop for local goods and food items. Deliveries are available exclusively within
+         Makati, similar to an integrated Shopee and Grab ecosystem for local businesses.
+         <br><br>
+         <strong>My Role:</strong> Fullstack Developer – Designed and developed both the frontend and backend. Built key
+         features including user and admin portals, shop and product management, and delivery coordination within Makati.
+         <br><br>
+         <strong>Key Features:</strong><br>
+         • Interactive tourist guide with historical background and recommendations<br>
+         • E-commerce module with product listings from Makati-based shops<br>
+         • Customer registration, order management, and in-city delivery tracking<br>
+         • Admin dashboard for monitoring shops, orders, and customer activities
+       </p>
+     </div>
+ 
+     <!-- Toggle Button -->
+     <button @click="showMore = true"
+             x-show="!showMore"
+             class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+       Show More
+     </button>
+ 
+     <!-- Tech Stack -->
+     <div class="flex flex-wrap gap-2 mt-4">
+       <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Vue.js</span>
+       <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
+       <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
+     </div>
+   </div>
+ </div>
+ 
+              
+ 
+   <!-- AIS Project -->
+   <div x-data="{ showMore: false }"
+   class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+
+<!-- Clickable Image & Title -->
+<div onclick="openModal('project3')" class="cursor-pointer">
+  <img src="Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.png"
+       alt="Makaturismo Screenshot" class="w-full h-48 object-cover">
+  <div class="p-6 pt-4">
+    <h3 class="text-xl font-bold mb-2">AIS</h3>
+  </div>
+</div>
+
+<!-- Summary -->
+<div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+  <p class="text-gray-300 mb-4">
+    <strong>Accounting Information System (AIS)</strong><br>
+    The Accounting Information System is a comprehensive financial management platform designed for the City Government of Makati to streamline and automate various accounting and administrative processes.
+  </p>
+
+  <!-- Expandable Section (Overlay Style) -->
+  <div x-show="showMore"
+       x-transition
+       class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+    
+    <button @click="showMore = false"
+            class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+      Show Less
+    </button>
+    
+    <p class="text-gray-300 text-sm">
+      It centralizes financial data and integrates multiple accounting functions into one unified interface, allowing for accurate, efficient, and transparent financial operations.
+      <br><br>
+      <strong>My Role:</strong> Fullstack Developer – Designed and implemented both the backend and frontend systems. Developed core modules for financial management, user authentication, and administrative tools, ensuring security, scalability, and ease of use.
+      <br><br>
+      <strong>Key Features:</strong><br>
+      • Dashboard for real-time financial and administrative insights<br>
+      • Document management for secure storage and retrieval of accounting documents<br>
+      • Budget management with allocation and monitoring tools<br>
+      • Payroll and remittances management for employee salary processing<br>
+      • Supply and property management for asset tracking and inventory control<br>
+      • Processing of claims and internal control management for streamlined approvals and compliance<br>
+      • Financial reporting with automated report generation<br>
+      • Barangay account management for decentralized fund tracking<br>
+      • Chart of accounts for organized financial data classification<br>
+      • Bookkeeping for systematic transaction recording<br>
+      • Admin settings and bulletin for system customization and announcements
+    </p>
+  </div>
+
+  <!-- Toggle Button -->
+  <button @click="showMore = true"
+          x-show="!showMore"
+          class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+    Show More
+  </button>
+
+  <!-- Tech Stack -->
+  <div class="flex flex-wrap gap-2 mt-4">
+    <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Vue.js</span>
+    <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
+    <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
+  </div>
+</div>
+</div>
     
 
         <!-- Modal -->
