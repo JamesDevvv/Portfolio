@@ -73,7 +73,7 @@
                 </p>
                 <div class="flex justify-center gap-4">
                     <a href="#contact" class="bg-white/10 text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-colors animate-glow">
-                        Let's Work Together
+                      Send Me a Message
                     </a>
                     <a href="#portfolio" class="border-2 border-white/50 px-8 py-3 rounded-lg hover:bg-white/10 hover:text-white transition-colors">
                         View Portfolio
@@ -190,7 +190,7 @@
                 </div>
                 <div class="bg-deep-blue/50 backdrop-blur-sm p-8 rounded-lg border border-white/30 card-glow">
                     <i class="fas fa-robot text-4xl mb-4 text-white"></i>
-                    <h3 class="text-xl font-bold mb-4 text-white">Custom Automation</h3>
+                    <h3 class="text-xl font-bold mb-4 text-white">AI Automation</h3>
                     <p class="text-gray-300">Intelligent automation solutions that streamline workflows and optimize business processes.</p>
                 </div>
                 <div class="bg-deep-blue/50 backdrop-blur-sm p-8 rounded-lg border border-white/30 card-glow">
@@ -264,7 +264,7 @@
    </button>
 
    <!-- Tech Stack -->
-   <div class="flex flex-wrap gap-2 mt-4">
+   <div class="flex flex-wrap gap-2 mt-9">
      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">React.js</span>
      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
@@ -343,8 +343,8 @@
 
 <!-- Clickable Image & Title -->
 <div onclick="openModal('project3')" class="cursor-pointer">
-  <img src="Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.png"
-       alt="Makaturismo Screenshot" class="w-full h-48 object-cover">
+  <img src="AIS/screencapture-localhost-3000-MainMenu-2025-08-12-04_12_58.png"
+       alt="AIS Screenshot" class="w-full h-48 object-cover">
   <div class="p-6 pt-4">
     <h3 class="text-xl font-bold mb-2">AIS</h3>
   </div>
@@ -395,7 +395,7 @@
   </button>
 
   <!-- Tech Stack -->
-  <div class="flex flex-wrap gap-2 mt-4">
+  <div class="flex flex-wrap gap-2 mt-9">
     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Vue.js</span>
     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
     <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
@@ -403,6 +403,138 @@
 </div>
 </div>
     
+
+
+
+<!-- SQUARE to HubSpot Integration Project -->
+<div x-data="{ showMore: false }"
+     class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+
+  <!-- Clickable Image & Title -->
+  <div onclick="openModal('project4')"  class="cursor-pointer">
+    <img src="API-Integ/square2hubspot.png"
+         alt="Square to HubSpot Integration" class="w-full h-48 object-cover">
+    <div class="p-6 pt-4">
+      <h3 class="text-xl font-bold mb-2">Square to HubSpot Integration</h3>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+    <p class="text-gray-300 mb-4">
+      <strong>Square to HubSpot Integration</strong><br>
+      A secure, microservices-based integration that automates the transfer of customer and transaction data from Square to HubSpot via REST APIs—helping businesses maintain synchronized records for sales and marketing workflows.
+    </p>
+
+    <!-- Expandable Section -->
+    <div x-show="showMore"
+         x-transition
+         class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+      
+      <button @click="showMore = false"
+              class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+        Show Less
+      </button>
+      
+      <p class="text-gray-300 text-sm">
+        This system runs as a scheduled service that pulls structured data from Square’s API, transforms it into HubSpot’s schema, and sends it to HubSpot CRM.  
+        It includes robust error handling, data validation, and logging for full traceability.
+        <br><br>
+        <strong>My Role:</strong> Backend Developer – Built the integration service using Spring Boot with Kotlin, deployed via Docker, and backed by PostgreSQL for logging and job tracking. Implemented authentication flows, optimized batch processing, and added monitoring endpoints.
+        <br><br>
+        <strong>Key Features:</strong><br>
+        • Automated syncing of customer & transaction data from Square to HubSpot<br>
+        • REST API microservices architecture for modular scalability<br>
+        • Scheduled job execution for recurring updates<br>
+        • Data mapping & transformation between platforms<br>
+        • PostgreSQL for storing logs and integration history<br>
+        • Dockerized deployment for portability and ease of scaling
+      </p>
+    </div>
+
+    <!-- Toggle Button -->
+    <button @click="showMore = true"
+            x-show="!showMore"
+            class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+      Show More
+    </button>
+
+    <!-- Tech Stack -->
+    <div class="flex flex-wrap gap-2 mt-9">
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Spring Boot</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Kotlin</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">PostgreSQL</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">REST API</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- WOOCommerce to HubSpot Integration Project -->
+<div x-data="{ showMore: false }"
+     class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+
+  <!-- Clickable Image & Title -->
+  <div onclick="openModal('project4')" class="cursor-pointer">
+    <img src="API-Integ/woocommerce2hubspot.png"
+         alt="WooCommerce to HubSpot Integration" class="w-full h-48 object-cover">
+    <div class="p-6 pt-4">
+      <h3 class="text-xl font-bold mb-2">WooCommerce to HubSpot Integration</h3>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+    <p class="text-gray-300 mb-4">
+      <strong>WooCommerce → HubSpot (Webhook-based)</strong><br>
+      A webhook-driven integration that sends WooCommerce order and customer events to HubSpot in real time, enabling immediate contact upserts and deal creation in the CRM.
+    </p>
+
+    <!-- Expandable Section -->
+    <div x-show="showMore"
+         x-transition
+         class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+      
+      <button @click="showMore = false"
+              class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+        Show Less
+      </button>
+      
+      <p class="text-gray-300 text-sm">
+        This integration listens for WooCommerce webhooks (order created/updated, customer created) and forwards normalized payloads to HubSpot via its REST API. Key considerations include webhook signature verification, idempotency (to avoid duplicate contacts/deals), and robust retry/error handling for transient failures.
+        <br><br>
+        <strong>My Role:</strong> Backend Developer – Implemented the webhook receiver and processing pipeline, created mapping logic from WooCommerce schema to HubSpot CRM objects, added signature verification and idempotency checks, and built monitoring & replay endpoints for failed events. Deployed the service in Docker and used PostgreSQL for logging and job tracking.
+        <br><br>
+        <strong>Key Features:</strong><br>
+        • Real-time order & customer sync via WooCommerce webhooks<br>
+        • Signature verification and idempotency to prevent duplicates<br>
+        • Automatic contact upsert and deal creation in HubSpot<br>
+        • Retry mechanism and error logging with PostgreSQL for observability<br>
+        • Admin endpoints for manual replay and audit of failed events<br>
+        • Dockerized deployment for portability and easy scaling
+      </p>
+    </div>
+
+    <!-- Toggle Button -->
+    <button @click="showMore = true"
+            x-show="!showMore"
+            class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+      Show More
+    </button>
+
+    <!-- Tech Stack -->
+    <div class="flex flex-wrap gap-2 mt-9">
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Node.js</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Express</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">WooCommerce Webhooks</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">HubSpot API</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">PostgreSQL</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Docker</span>
+    </div>
+  </div>
+</div>
+
 
         <!-- Modal -->
         <div id="modal" class="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center hidden">
@@ -430,7 +562,7 @@
 
 
     </section>
-   
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-20">

@@ -174,10 +174,15 @@ const imageData = {
     ]
   },
   project3: {
-    title: 'SaaS Integration Platform',
+    title: 'Square to Hubspot',
     images: [
-      'https://via.placeholder.com/600x400?text=SaaS+Image+1',
-      'https://via.placeholder.com/600x400?text=SaaS+Image+2',
+      'API-Integ/square2hubspot.png'
+    ]
+  },
+  project4: {
+    title: 'WooCommerce to Hubspot',
+    images: [
+      'API-Integ/woocommerce2hubspot.png'
     ]
   }
 };
