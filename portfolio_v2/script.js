@@ -38,25 +38,32 @@ window.addEventListener('scroll', onScroll);
 
 // Typewriter effect
 
-const text = 'Software Developer';
+const texts = ['Software Developer', 'Software Engineer', 'Automation Specialist'];
 const el = document.getElementById('typewriter');
-let i = 0;
+
+let i = 0; 
+let j = 0; 
 let isDeleting = false;
 
 function type() {
+  const currentText = texts[i];
+
   if (!isDeleting) {
-    el.textContent = text.substring(0, i + 1);
-    i++;
-    if (i === text.length) {
+    el.textContent = currentText.substring(0, j + 1);
+    j++;
+
+    if (j === currentText.length) {
       isDeleting = true;
       setTimeout(type, 1500); 
       return;
     }
   } else {
-    el.textContent = text.substring(0, i - 1);
-    i--;
-    if (i === 0) {
+    el.textContent = currentText.substring(0, j - 1);
+    j--;
+
+    if (j === 0) {
       isDeleting = false;
+      i = (i + 1) % texts.length; 
     }
   }
 
@@ -64,6 +71,7 @@ function type() {
 }
 
 type();
+
 
 
 // Tailwind config
@@ -192,7 +200,15 @@ const imageData = {
     images: [
       'API-Integ/woocommerce2hubspot.png'
     ]
-  }
+  },
+  projectGeo:{
+    
+    title : 'Geolocation App',
+    images : [
+    
+      'Geo/screencapture-localhost-5177-home-2025-08-29-01_24_37.png',
+      'Geo/screencapture-localhost-5177-login-2025-08-29-01_22_12.png'
+  ]}
 };
 
 function openModal(projectId) {

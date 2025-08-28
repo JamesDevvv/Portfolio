@@ -66,8 +66,9 @@
                 <h1 class="text-6xl font-bold mb-4 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] ">
                     James Cedrick Barzaga   
                 </h1>
-                <p id="typewriter" class="text-2xl mb-8 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"></p>
-
+                <div id="typewriter-container" class="h-10 mb-8">
+                  <p id="typewriter" class="text-2xl text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"></p>
+                </div>
                 <p class="text-xl mb-12 max-w-2xl mx-auto text-gray-300">
                     Solving problems with clean code, custom integrations, and reliable automation workflows.
                 </p>
@@ -534,6 +535,72 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Geolocation Application Project -->
+<div x-data="{ showMore: false }"
+     class="relative bg-deep-blue/50 backdrop-blur-sm rounded-lg overflow-hidden border border-white/30 card-glow hover:scale-105 transition transform duration-300 h-full flex flex-col">
+
+  <!-- Clickable Image & Title -->
+  <div onclick="openModal('projectGeo')" class="cursor-pointer">
+    <img src="Geo/screencapture-localhost-5177-home-2025-08-29-01_24_37.png"
+         alt="Geolocation Application" class="w-full h-48 object-cover">
+    <div class="p-6 pt-4">
+      <h3 class="text-xl font-bold mb-2">Geolocation Application</h3>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="px-6 pb-6 pt-0 flex flex-col flex-grow">
+    <p class="text-gray-300 mb-4">
+      <strong>React Frontend + Laravel Backend</strong><br>
+      A geolocation-based web application that captures user location, displays it on an interactive Leaflet map, and stores the data in a MySQL database.
+    </p>
+
+    <!-- Expandable Section -->
+    <div x-show="showMore"
+         x-transition
+         class="absolute top-0 left-0 w-full h-full z-10 bg-[#0c1223] px-6 py-6 overflow-y-auto rounded-lg shadow-2xl">
+      
+      <button @click="showMore = false"
+              class="text-sm text-blue-400 hover:underline focus:outline-none mb-4">
+        Show Less
+      </button>
+      
+      <p class="text-gray-300 text-sm">
+        This application leverages the browser’s Geolocation API to get the user’s current coordinates and renders them on a Leaflet-powered interactive map in React. Data is sent to a Laravel backend, where it is validated and stored in MySQL for history tracking and further analysis. Users can also view stored locations, filter by date, and manage their sessions securely.
+        <br><br>
+        <strong>My Role:</strong> Fullstack Developer – Implemented the React frontend with Leaflet map integration, created REST API endpoints in Laravel for location storage and retrieval, designed a MySQL schema for geolocation data, and added authentication & middleware protection for API routes.
+        <br><br>
+        <strong>Key Features:</strong><br>
+        • Real-time geolocation capture via browser API<br>
+        • Leaflet.js interactive maps with markers and zoom<br>
+        • Secure REST API for storing & retrieving location history<br>
+        • MySQL database integration with Laravel Eloquent ORM<br>
+        • Filters for viewing locations by date and user<br>
+        • Authentication for protecting API endpoints
+      </p>
+    </div>
+
+    <!-- Toggle Button -->
+    <button @click="showMore = true"
+            x-show="!showMore"
+            class="text-sm text-blue-400 hover:underline focus:outline-none mt-2">
+      Show More
+    </button>
+
+    <!-- Tech Stack -->
+    <div class="flex flex-wrap gap-2 mt-9">
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">React</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Laravel</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">Leaflet.js</span>
+      <span class="px-3 py-1 bg-white/10 border border-white/50 rounded-full text-xs">MySQL</span>
+    </div>
+  </div>
+</div>
+
+
 
 
         <!-- Modal -->
