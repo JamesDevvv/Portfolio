@@ -242,5 +242,13 @@ function prevImage() {
 
 function closeModal() {
   modal.classList.add('hidden');
-  modalImage.src = ''; // clear on close
+  modalImage.src = ''; 
 }
+
+fetch("jamescedrickbarzaga.vercel.app/api/log", {
+  method: "POST"
+})
+  .then(res => res.json())
+  .then(data => console.log("Visitor tracked:", data))
+  .catch(err => console.error(err));
+
