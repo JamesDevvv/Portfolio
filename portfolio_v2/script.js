@@ -245,7 +245,7 @@ function closeModal() {
   modalImage.src = ''; 
 }
 
-fetch("jamescedrickbarzaga.vercel.app/api/log", {
+fetch("/api/log", {
   method: "POST"
 })
   .then(res => res.json())
