@@ -36,6 +36,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('scroll', onScroll);
 
+let resizeRaf = null;
+window.addEventListener('resize', () => {
+  if (resizeRaf) return;
+  resizeRaf = requestAnimationFrame(() => {
+    onScroll();
+    resizeRaf = null;
+  });
+});
+
+// Scroll-reveal for cards
+const revealTargets = document.querySelectorAll('.card-glow, .tech-card');
+revealTargets.forEach(el => el.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealTargets.forEach(el => revealObserver.observe(el));
+
 // Typewriter effect
 
 const texts = ['Software Developer', 'Software Engineer', 'Automation Specialist'];
@@ -104,21 +128,22 @@ tailwind.config = {
   let offsetX = 0;
   let offsetY = 0;
 
-  moon.addEventListener('mousedown', (e) => {
+  moon.addEventListener('pointerdown', (e) => {
       isDragging = true;
+      moon.setPointerCapture(e.pointerId);
       offsetX = e.clientX - moon.offsetLeft;
       offsetY = e.clientY - moon.offsetTop;
       moon.style.cursor = 'grabbing';
   });
 
-  document.addEventListener('mousemove', (e) => {
+  moon.addEventListener('pointermove', (e) => {
       if (isDragging) {
           moon.style.left = `${e.clientX - offsetX}px`;
           moon.style.top = `${e.clientY - offsetY}px`;
       }
   });
 
-  document.addEventListener('mouseup', () => {
+  moon.addEventListener('pointerup', () => {
       isDragging = false;
       moon.style.cursor = 'grab';
   });
@@ -167,47 +192,47 @@ const imageData = {
   project1: {
     title: 'Project Resolve',
     images: [
-      'Project-Resolve/screencapture-localhost-5173-2025-08-01-01_41_50.png',
-      'Project-Resolve/screencapture-localhost-5173-lce-dashboard-2025-08-01-01_42_45.png',
-      'Project-Resolve/screencapture-localhost-5174-2025-08-01-01_43_07.png',
-      'Project-Resolve/screencapture-localhost-5174-lgu-chat-2025-08-01-01_44_20.png',
-      'Project-Resolve/screencapture-localhost-5174-lgu-dashboard-2025-08-01-01_43_44.png',
-      'Project-Resolve/screencapture-localhost-5174-lgu-settings-2025-08-01-01_45_10.png',
+      'Project-Resolve/screencapture-localhost-5173-2025-08-01-01_41_50.jpg',
+      'Project-Resolve/screencapture-localhost-5173-lce-dashboard-2025-08-01-01_42_45.jpg',
+      'Project-Resolve/screencapture-localhost-5174-2025-08-01-01_43_07.jpg',
+      'Project-Resolve/screencapture-localhost-5174-lgu-chat-2025-08-01-01_44_20.jpg',
+      'Project-Resolve/screencapture-localhost-5174-lgu-dashboard-2025-08-01-01_43_44.jpg',
+      'Project-Resolve/screencapture-localhost-5174-lgu-settings-2025-08-01-01_45_10.jpg',
     ]
   },
   project2: {
     title: 'Makaturismo',
     images: [
-      'Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.png',
+      'Makaturismo/screencapture-localhost-5173-2025-08-06-02_00_13.jpg',
     ]
   },
 
   project3:{
       title: 'AIS',
       images: [
-        'AIS/screencapture-localhost-3000-2025-08-12-03_27_44.png',
-        'AIS/screencapture-localhost-3000-MainMenu-2025-08-12-04_12_58.png'
+        'AIS/screencapture-localhost-3000-2025-08-12-03_27_44.jpg',
+        'AIS/screencapture-localhost-3000-MainMenu-2025-08-12-04_12_58.jpg'
       ]
   },
   project4: {
     title: 'Square to Hubspot',
     images: [
-      'API-Integ/square2hubspot.png'
+      'API-Integ/square2hubspot.jpg'
     ]
   },
   project5: {
     title: 'WooCommerce to Hubspot',
     images: [
-      'API-Integ/woocommerce2hubspot.png'
+      'API-Integ/woocommerce2hubspot.jpg'
     ]
   },
   projectGeo:{
-    
+
     title : 'Geolocation App',
     images : [
-    
-      'Geo/screencapture-localhost-5177-home-2025-08-29-01_24_37.png',
-      'Geo/screencapture-localhost-5177-login-2025-08-29-01_22_12.png'
+
+      'Geo/screencapture-localhost-5177-home-2025-08-29-01_24_37.jpg',
+      'Geo/screencapture-localhost-5177-login-2025-08-29-01_22_12.jpg'
   ]}
 };
 
@@ -242,13 +267,14 @@ function prevImage() {
 
 function closeModal() {
   modal.classList.add('hidden');
-  modalImage.src = ''; 
+  modalImage.src = '';
 }
 
-fetch("/api/log", {
-  method: "POST"
-})
-  .then(res => res.json())
-  .then(data => console.log("Visitor tracked:", data))
-  .catch(err => console.error(err));
+document.addEventListener('keydown', (e) => {
+  if (modal.classList.contains('hidden')) return;
+  if (e.key === 'ArrowLeft') prevImage();
+  if (e.key === 'ArrowRight') nextImage();
+  if (e.key === 'Escape') closeModal();
+});
+
 

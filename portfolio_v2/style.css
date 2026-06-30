@@ -4,8 +4,15 @@
 .card-glow {
     transition: all 0.3s ease;
 }
-.card-glow:hover {
-    box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+@media (hover: hover) and (pointer: fine) {
+    .card-glow:hover {
+        box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+    }
+}
+@media (hover: none) {
+    .hover\:scale-105:hover {
+        transform: none !important;
+    }
 }
 
 /* Cosmic nebula-style parallax background */
@@ -138,8 +145,9 @@ transform: translate(-50%, -50%);
 background: url('images/moon-texture.png') no-repeat center/cover;
 border-radius: 50%;
 z-index: 1;
+touch-action: none;
 animation: orbitAround 60s linear infinite, spinMoon 60s linear infinite;
-}   
+}
 @keyframes orbitAround {
 0%   { transform: translate(-50%, -50%) translate(0px, 0px); }
 10%  { transform: translate(-50%, -50%) translate(80px, -40px); }
@@ -191,9 +199,11 @@ z-index: -1;
   transition: all 0.3s;
   box-shadow: none;
 }
-.tech-card:hover {
-  background: rgba(255,255,255,0.1); /* hover:bg-white/10 */
-  box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff; /* card-glow */
+@media (hover: hover) and (pointer: fine) {
+    .tech-card:hover {
+      background: rgba(255,255,255,0.1); /* hover:bg-white/10 */
+      box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff; /* card-glow */
+    }
 }
 
 /*typewriter css*/
@@ -201,3 +211,25 @@ z-index: -1;
 #typewriter-container {
     overflow: hidden; /* prevents the shrinking text from affecting layout */
   }
+
+#typewriter::after {
+    content: '|';
+    margin-left: 2px;
+    animation: blinkCursor 1s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scroll-reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
